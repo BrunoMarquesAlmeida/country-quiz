@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+export enum btnTypes {
+  normal,
+  correct,
+  incorrect,
+}
 
 @Component({
   standalone: true,
@@ -6,4 +12,6 @@ import { Component } from '@angular/core';
   templateUrl: './answer-btn.component.html',
   styleUrls: ['./answer-btn.component.scss'],
 })
-export class AnswerBtnComponent {}
+export class AnswerBtnComponent {
+  @Input() btnType: btnTypes = btnTypes.normal;
+}

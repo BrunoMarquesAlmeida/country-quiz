@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 
-import { AnswerBtnComponent } from './answer-btn/answer-btn.component';
+import {
+  AnswerBtnComponent,
+  btnTypes,
+} from './answer-btn/answer-btn.component';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +13,5 @@ import { AnswerBtnComponent } from './answer-btn/answer-btn.component';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'country-quiz';
+  btnType: btnTypes = btnTypes.correct;
 }
