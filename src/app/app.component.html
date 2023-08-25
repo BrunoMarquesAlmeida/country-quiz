@@ -10,6 +10,11 @@
   <div class="quiz-box">
     <h2 class="quiz-box__question-header">Question</h2>
 
-    <answer-btn [btnType]="btnType" />
+    <answer-btn
+      [type]="type"
+      [onClick]="onClick"
+      [orderIndex]="btnIndex"
+      [text]="btnText"
+    />
   </div>
 </main>

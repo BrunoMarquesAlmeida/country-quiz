@@ -1,4 +1,16 @@
-<button class="answer-btn answer-btn--correct" type="button">
-  <span class="answer-btn__letter">B</span>{{ btnType }}
-  <span class="material-symbols-outlined"> cancel </span>
+<button
+  class="answer-btn answer-btn--{{ type }}"
+  (click)="onClick()"
+  type="button"
+>
+  <span class="answer-btn__letter">{{ orderLetter }}</span
+  >{{ text }}
+
+  <span *ngIf="type === 'incorrect'" class="material-symbols-outlined">
+    cancel
+  </span>
+
+  <span *ngIf="type === 'correct'" class="material-symbols-outlined">
+    check_circle
+  </span>
 </button>

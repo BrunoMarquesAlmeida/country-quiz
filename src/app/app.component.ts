@@ -13,5 +13,8 @@ import {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  btnType: btnTypes = btnTypes.correct;
+  type: btnTypes = btnTypes.correct;
+  onClick: Function = () => console.log('click!');
+  btnIndex: number = 0;
+  btnText: string = 'button text';
 }
