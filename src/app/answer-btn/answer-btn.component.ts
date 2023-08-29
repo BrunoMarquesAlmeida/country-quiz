@@ -24,7 +24,5 @@ export class AnswerBtnComponent implements OnInit {
   ngOnInit() {
     if (this.orderIndex >= 0)
       this.orderLetter = (this.orderIndex + 10).toString(36).toUpperCase();
-
-    console.log(this.orderLetter);
   }
 }
