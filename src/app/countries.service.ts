@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { CountryDetails } from './country-details';
 
 @Injectable({
   providedIn: 'root',
@@ -7,15 +8,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class CountriesService {
   readonly url = 'https://restcountries.com/v3.1/all?fields=name,capital,flag';
 
-  constructor(private http: HttpClient) {}
+  async getCountries() {
+    const countriesList = await fetch(this.url).then((response) =>
+      response.json()
+    );
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-    }),
-  };
-
-  getCountries() {
-    return this.http.get(this.url);
+    return [...countriesList];
   }
+
+  constructor() {}
 }

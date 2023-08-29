@@ -23,12 +23,12 @@ export class AppComponent {
   btnIndex: number = 0;
   btnText: string = 'button text';
 
-  countriesList: CountryDetails[] = [];
+  countriesList: any = [];
   countriesService: CountriesService = inject(CountriesService);
 
-  constructor(private http: HttpClient) {
-    this.countriesService.getCountries().subscribe((response) => {
-      console.log(response);
-    });
+  constructor() {
+    this.countriesList = this.countriesService.getCountries();
+
+    console.log(this.countriesList);
   }
 }
