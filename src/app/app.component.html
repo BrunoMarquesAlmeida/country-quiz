@@ -7,32 +7,5 @@
     class="header-img"
   />
 
-  <div class="quiz-box">
-    <h2 class="quiz-box__question-header">Question</h2>
-
-    <answer-btn
-      [type]="type"
-      [onClick]="onClick"
-      [orderIndex]="btnIndex"
-      [text]="btnText"
-    />
-    <answer-btn
-      [type]="type"
-      [onClick]="onClick"
-      [orderIndex]="btnIndex"
-      [text]="btnText"
-    />
-    <answer-btn
-      [type]="type"
-      [onClick]="onClick"
-      [orderIndex]="btnIndex"
-      [text]="btnText"
-    />
-    <answer-btn
-      [type]="type"
-      [onClick]="onClick"
-      [orderIndex]="btnIndex"
-      [text]="btnText"
-    />
-  </div>
+  <app-quiz-box [countriesList]="countriesList" />
 </main>

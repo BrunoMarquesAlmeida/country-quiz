@@ -6,14 +6,11 @@ import { CountryDetails } from './country-details';
   providedIn: 'root',
 })
 export class CountriesService {
-  readonly url = 'https://restcountries.com/v3.1/all?fields=name,capital,flag';
+  readonly url = 'https://restcountries.com/v3.1/all?fields=name,capital,flags';
 
-  async getCountries() {
-    const countriesList = await fetch(this.url).then((response) =>
-      response.json()
-    );
-
-    return [...countriesList];
+  async getCountries(): Promise<CountryDetails[]> {
+    const countriesList = await fetch(this.url);
+    return (await countriesList.json()) ?? [];
   }
 
   constructor() {}

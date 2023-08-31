@@ -1,5 +1,5 @@
 export interface CountryDetails {
-  name: { official: string };
+  name: { official: string; common: string };
   capital: string[];
-  flag: string;
+  flags: { png: string };
 }

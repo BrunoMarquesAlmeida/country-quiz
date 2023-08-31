@@ -1,0 +1,21 @@
+<div *ngIf="countriesLoaded" class="quiz-box">
+  <h2 *ngIf="questionType === 0" class="quiz-box__question-header">
+    {{ selectedCountries[questionAnswer].capital }} is the capital of.
+  </h2>
+  <h2 *ngIf="questionType === 1" class="quiz-box__question-header">
+    <img
+      class="quiz-box__question-header__flag"
+      src="{{ selectedCountries[questionAnswer].flags.png }}"
+      alt="Mystery country flag"
+    />
+    Which country does this flag belong to?
+  </h2>
+
+  <answer-btn
+    *ngFor="let country of selectedCountries; index as i"
+    [type]="btnTypes.normal"
+    (click)="answerClick(i)"
+    [orderIndex]="i"
+    [text]="country.name.common"
+  />
+</div>

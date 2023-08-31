@@ -1,34 +1,27 @@
-import { Component, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, inject, OnInit } from '@angular/core';
 
-import {
-  AnswerBtnComponent,
-  btnTypes,
-} from './answer-btn/answer-btn.component';
-
-import { CountryDetails } from './country-details';
+import { QuizBoxComponent } from './quiz-box/quiz-box.component';
 
 import { CountriesService } from './countries.service';
+
+import { CountryDetails } from './country-details';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AnswerBtnComponent],
+  imports: [QuizBoxComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  type: btnTypes = btnTypes.normal;
-  onClick: Function = () => console.log('click!');
-  btnIndex: number = 0;
-  btnText: string = 'button text';
-
-  countriesList: any = [];
+export class AppComponent implements OnInit {
+  countriesList: CountryDetails[] = [];
   countriesService: CountriesService = inject(CountriesService);
 
-  constructor() {
-    this.countriesList = this.countriesService.getCountries();
-
-    console.log(this.countriesList);
+  ngOnInit(): void {
+    this.countriesService
+      .getCountries()
+      .then((countriesList: CountryDetails[]) => {
+        this.countriesList = countriesList;
+      });
   }
 }
