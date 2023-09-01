@@ -16,17 +16,39 @@ import { CountryDetails } from '../country-details';
   styleUrls: ['./quiz-box.component.scss'],
 })
 export class QuizBoxComponent implements OnChanges {
-  @Input() countriesList: CountryDetails[] = [];
   btnTypes = btnTypes;
+
+  // get a list of all countries and select 4 to be a part of the quiz
+  @Input() countriesList: CountryDetails[] = [];
   countriesLoaded: boolean = false;
-  questionType: number = Math.random() >= 0.5 ? 1 : 0;
-  questionAnswer: number = Math.floor(Math.random() * 4);
   selectedCountries: CountryDetails[] = [];
+
+  // initialize quiz params
+  questionType: number = Math.random() >= 0.5 ? 1 : 0;
+  correctAnswer: number = Math.floor(Math.random() * 4);
+  userSelectedAnswer: number | null = null;
+
   answerClick: Function = (answerIndex: number): void => {
-    answerIndex === this.questionAnswer
-      ? console.log('correct')
-      : console.log('incorrect');
+    if (this.userSelectedAnswer !== null) {
+      return;
+    }
+
+    if (answerIndex === this.correctAnswer) {
+      this.answerBtnTypes[answerIndex] = btnTypes.correct;
+    } else {
+      this.answerBtnTypes[answerIndex] = btnTypes.incorrect;
+      this.answerBtnTypes[this.correctAnswer] = btnTypes.correct;
+    }
+
+    this.userSelectedAnswer = answerIndex;
   };
+
+  answerBtnTypes: btnTypes[] = [
+    btnTypes.normal,
+    btnTypes.normal,
+    btnTypes.normal,
+    btnTypes.normal,
+  ];
 
   ngOnChanges(): void {
     // selects 4 random countries to be a part of the quiz

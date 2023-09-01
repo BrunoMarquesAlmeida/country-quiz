@@ -1,11 +1,11 @@
 <div *ngIf="countriesLoaded" class="quiz-box">
   <h2 *ngIf="questionType === 0" class="quiz-box__question-header">
-    {{ selectedCountries[questionAnswer].capital }} is the capital of.
+    {{ selectedCountries[correctAnswer].capital }} is the capital of.
   </h2>
   <h2 *ngIf="questionType === 1" class="quiz-box__question-header">
     <img
       class="quiz-box__question-header__flag"
-      src="{{ selectedCountries[questionAnswer].flags.png }}"
+      src="{{ selectedCountries[correctAnswer].flags.png }}"
       alt="Mystery country flag"
     />
     Which country does this flag belong to?
@@ -13,9 +13,13 @@
 
   <answer-btn
     *ngFor="let country of selectedCountries; index as i"
-    [type]="btnTypes.normal"
+    [type]="answerBtnTypes[i]"
     (click)="answerClick(i)"
     [orderIndex]="i"
     [text]="country.name.common"
   />
+
+  <div *ngIf="this.userSelectedAnswer !== null" class="quiz-box__next-btn">
+    <button>Next</button>
+  </div>
 </div>
