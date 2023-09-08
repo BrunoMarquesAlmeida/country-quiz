@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { NgIf, NgFor } from '@angular/common';
 
 import {
@@ -27,21 +27,7 @@ export class QuizBoxComponent implements OnChanges {
   questionType: number = Math.random() >= 0.5 ? 1 : 0;
   correctAnswer: number = Math.floor(Math.random() * 4);
   userSelectedAnswer: number | null = null;
-
-  answerClick: Function = (answerIndex: number): void => {
-    if (this.userSelectedAnswer !== null) {
-      return;
-    }
-
-    if (answerIndex === this.correctAnswer) {
-      this.answerBtnTypes[answerIndex] = btnTypes.correct;
-    } else {
-      this.answerBtnTypes[answerIndex] = btnTypes.incorrect;
-      this.answerBtnTypes[this.correctAnswer] = btnTypes.correct;
-    }
-
-    this.userSelectedAnswer = answerIndex;
-  };
+  userTotalCorrectAnswers: number = 0;
 
   answerBtnTypes: btnTypes[] = [
     btnTypes.normal,
@@ -50,7 +36,50 @@ export class QuizBoxComponent implements OnChanges {
     btnTypes.normal,
   ];
 
-  ngOnChanges(): void {
+  answerBtnClick: Function = (answerIndex: number): void => {
+    if (this.userSelectedAnswer !== null) {
+      return;
+    }
+
+    // Correct Answer
+    if (answerIndex === this.correctAnswer) {
+      this.answerBtnTypes[answerIndex] = btnTypes.correct;
+      this.userTotalCorrectAnswers++;
+
+      console.log(this.userTotalCorrectAnswers);
+    }
+    // Incorrect
+    else {
+      this.answerBtnTypes[answerIndex] = btnTypes.incorrect;
+      this.answerBtnTypes[this.correctAnswer] = btnTypes.correct;
+    }
+
+    this.userSelectedAnswer = answerIndex;
+  };
+
+  nextBtnClick: Function = (): void => {
+    // Correct Answer
+    if (this.userSelectedAnswer === this.correctAnswer) {
+      this.initializeQuestion();
+      return;
+    }
+
+    // Incorrect
+    this.countriesLoaded = false;
+  };
+
+  initializeQuestion: Function = (): void => {
+    this.questionType = Math.random() >= 0.5 ? 1 : 0;
+    this.correctAnswer = Math.floor(Math.random() * 4);
+    this.userSelectedAnswer = null;
+    this.selectedCountries = [];
+    this.answerBtnTypes = [
+      btnTypes.normal,
+      btnTypes.normal,
+      btnTypes.normal,
+      btnTypes.normal,
+    ];
+
     // selects 4 random countries to be a part of the quiz
     if (this.countriesList.length > 0) {
       const grabBag: CountryDetails[] = [...this.countriesList];
@@ -69,5 +98,9 @@ export class QuizBoxComponent implements OnChanges {
 
       this.countriesLoaded = true;
     }
+  };
+
+  ngOnChanges(): void {
+    this.initializeQuestion();
   }
 }

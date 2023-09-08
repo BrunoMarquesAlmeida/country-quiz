@@ -17,7 +17,6 @@ export enum btnTypes {
 export class AnswerBtnComponent implements OnInit {
   @Input() type: btnTypes = btnTypes.normal;
   @Input() orderIndex!: number;
-  @Input() onClick!: Function;
   @Input() text: string = 'missing text 😥';
   orderLetter!: string;
 

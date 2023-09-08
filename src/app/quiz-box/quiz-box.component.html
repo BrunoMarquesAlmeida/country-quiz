@@ -1,4 +1,4 @@
-<div *ngIf="countriesLoaded" class="quiz-box">
+<div *ngIf="countriesLoaded; else resultsScreen" class="quiz-box">
   <h2 *ngIf="questionType === 0" class="quiz-box__question-header">
     {{ selectedCountries[correctAnswer].capital }} is the capital of.
   </h2>
@@ -14,12 +14,18 @@
   <answer-btn
     *ngFor="let country of selectedCountries; index as i"
     [type]="answerBtnTypes[i]"
-    (click)="answerClick(i)"
+    (click)="answerBtnClick(i)"
     [orderIndex]="i"
     [text]="country.name.common"
   />
 
-  <div *ngIf="this.userSelectedAnswer !== null" class="quiz-box__next-btn">
+  <div
+    *ngIf="this.userSelectedAnswer !== null"
+    (click)="nextBtnClick()"
+    class="quiz-box__next-btn"
+  >
     <button>Next</button>
   </div>
 </div>
+
+<ng-template #resultsScreen><div class="quiz-box">RESULTS</div> </ng-template>
