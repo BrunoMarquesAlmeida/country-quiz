@@ -45,8 +45,6 @@ export class QuizBoxComponent implements OnChanges {
     if (answerIndex === this.correctAnswer) {
       this.answerBtnTypes[answerIndex] = btnTypes.correct;
       this.userTotalCorrectAnswers++;
-
-      console.log(this.userTotalCorrectAnswers);
     }
     // Incorrect
     else {
@@ -55,17 +53,6 @@ export class QuizBoxComponent implements OnChanges {
     }
 
     this.userSelectedAnswer = answerIndex;
-  };
-
-  nextBtnClick: Function = (): void => {
-    // Correct Answer
-    if (this.userSelectedAnswer === this.correctAnswer) {
-      this.initializeQuestion();
-      return;
-    }
-
-    // Incorrect
-    this.countriesLoaded = false;
   };
 
   initializeQuestion: Function = (): void => {
@@ -98,6 +85,22 @@ export class QuizBoxComponent implements OnChanges {
 
       this.countriesLoaded = true;
     }
+  };
+
+  tryAgainBtnClick: Function = (): void => {
+    this.userTotalCorrectAnswers = 0;
+    this.initializeQuestion();
+  };
+
+  nextBtnClick: Function = (): void => {
+    // Correct Answer
+    if (this.userSelectedAnswer === this.correctAnswer) {
+      this.initializeQuestion();
+      return;
+    }
+
+    // Incorrect
+    this.countriesLoaded = false;
   };
 
   ngOnChanges(): void {

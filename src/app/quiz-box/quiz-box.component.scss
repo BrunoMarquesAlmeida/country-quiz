@@ -1,4 +1,11 @@
+.header-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .quiz-box {
+  box-sizing: border-box;
   width: 464px;
   padding: 68px 32px;
   border-radius: 24px;
@@ -31,9 +38,44 @@
     box-shadow: 0px 2px 4px 0px rgba(252, 168, 47, 0.4);
 
     color: #fff;
-    font-size: 18px;
     font-weight: 700;
-
-    cursor: pointer;
   }
+}
+
+// Results styles 💯
+
+.quiz-box--results {
+  color: #1d355d;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.quiz-box__results-img {
+  margin: -26px 0 72px;
+}
+
+.quiz-box__results-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.quiz-box__results-score {
+  font-weight: 400;
+  line-height: normal;
+  margin: 0 0 71px;
+
+  span {
+    color: #6fcf97;
+    font-size: 36px;
+    font-weight: 700;
+  }
+}
+
+.quiz-box__try-again-btn {
+  border-color: #1d355d;
+  background: #fff;
+  padding: 18px 61px;
+  color: inherit;
 }

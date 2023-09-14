@@ -1,3 +1,10 @@
+<img
+  *ngIf="countriesLoaded"
+  src="/assets/img/header_img.svg"
+  alt="Man stands besides a globe"
+  class="header-img"
+/>
+
 <div *ngIf="countriesLoaded; else resultsScreen" class="quiz-box">
   <h2 *ngIf="questionType === 0" class="quiz-box__question-header">
     {{ selectedCountries[correctAnswer].capital }} is the capital of.
@@ -28,4 +35,21 @@
   </div>
 </div>
 
-<ng-template #resultsScreen><div class="quiz-box">RESULTS</div> </ng-template>
+<ng-template #resultsScreen
+  ><div class="quiz-box quiz-box--results">
+    <img
+      src="/assets/img/undraw_winners.svg"
+      alt="People celebrate around a trophy"
+      class="quiz-box__results-img"
+    />
+
+    <p class="quiz-box__results-title">Results</p>
+    <p class="quiz-box__results-score">
+      You got <span>{{ userTotalCorrectAnswers }}</span> correct answers
+    </p>
+
+    <button class="quiz-box__try-again-btn" (click)="tryAgainBtnClick()">
+      Try again
+    </button>
+  </div>
+</ng-template>
