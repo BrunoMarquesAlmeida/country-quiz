@@ -8,14 +8,14 @@
 
 <div align="center">
   <h3>
-    <!-- <a href="https://{your-demo-link.your-domain}">
+    <a href="https://bma-countryquiz.web.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/BrunoMarquesAlmeida/country-quiz">
       Solution
     </a>
-    <span> | </span> -->
+    <span> | </span>
     <a href="https://devchallenges.io/challenges/Bu3G2irnaXmfwQ8sZkw8">
       Challenge
     </a>
@@ -28,49 +28,30 @@
 
 - [Overview](#overview)
   - [Built With](#built-with)
-- [Features](#features)
-- [How to use](#how-to-use)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
 
 <!-- OVERVIEW -->
 
-<!-- ## Overview
+## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![screenshot](https://github.com/BrunoMarquesAlmeida/country-quiz/blob/main/src/assets/img/Screenshot.jpg?raw=true)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+In this project the challenge was to create a country quiz app using an API and fulfill the following user stories:
 
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :) -->
+- I can see at least 2 types of questions: a city is the capital of.. or a flag belong to country..
+- I can see select an answer
+- I can see if my answer is correct or incorrect
+- When I answer correctly, I can move on to the next question
+- When I answer incorrectly, I can see my results and try again
+- I can try again
+
+Prior to taking on this challenge I had no previous working knowledge of Angular and TypeScript so I used it as a valuable learning experience.
+
+I will continue to further this knowledge by building more projects in which I will also develop the Backend with the main goal of progressing my career as a Web Developer.
 
 ### Built With
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
 - [Angular](https://angular.io/)
-
-## Features
-
-<!-- List the features of your application or follow the template. Don't share the figma file here :) -->
-
-This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/Bu3G2irnaXmfwQ8sZkw8) was to build an application to complete the given user stories.
-
-## How To Use
-
-<!-- Example: -->
-
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
-
-```bash
-# Clone this repository
-$ git clone https://github.com/BrunoMarquesAlmeida/country-quiz.git
-
-# Install dependencies
-$ npm install
-
-# Run the app
-$ ng serve
-```
+- [TypeScript](https://www.typescriptlang.org/)
+- [REST Countries](https://restcountries.com/)
