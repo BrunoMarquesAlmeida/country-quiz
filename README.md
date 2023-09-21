@@ -12,10 +12,6 @@
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/BrunoMarquesAlmeida/country-quiz">
-      Solution
-    </a>
-    <span> | </span>
     <a href="https://devchallenges.io/challenges/Bu3G2irnaXmfwQ8sZkw8">
       Challenge
     </a>
@@ -47,6 +43,8 @@ In this project the challenge was to create a country quiz app using an API and 
 Prior to taking on this challenge I had no previous working knowledge of Angular and TypeScript so I used it as a valuable learning experience.
 
 I will continue to further this knowledge by building more projects in which I will also develop the Backend with the main goal of progressing my career as a Web Developer.
+
+The Demo is made accessible using Firebase: https://bma-countryquiz.web.app
 
 ### Built With
 
