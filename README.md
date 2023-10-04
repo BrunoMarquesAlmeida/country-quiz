@@ -23,7 +23,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
-  - [Built With](#built-with)
+  - [What I learned](#built-with)
 
 <!-- OVERVIEW -->
 
@@ -46,7 +46,7 @@ I will continue to further this knowledge by building more projects in which I w
 
 The Demo is made accessible using Firebase: https://bma-countryquiz.web.app
 
-### Built With
+### What I learned
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
