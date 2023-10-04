@@ -18,13 +18,6 @@
   </h3>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-
-## Table of Contents
-
-- [Overview](#overview)
-  - [What I learned](#what-i-learned)
-
 <!-- OVERVIEW -->
 
 ## Overview
